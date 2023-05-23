@@ -83,7 +83,6 @@ def help_name(update : Update, context = CallbackContext):
 def help_tag(update:Update, context: CallbackContext):
     # Получить категорию
     query = update.callback_query
-    # user = update.message.from_user
     user_data = context.user_data
     category = 'tag'
     data = update.callback_query.data
@@ -108,7 +107,6 @@ def help_tag(update:Update, context: CallbackContext):
 
 def help_description(update : Update , context : CallbackContext):
     # Получить описание
-    # user = update.message.from_user
     user_data = context.user_data
     category = 'description'
     text = update.message.text
@@ -197,13 +195,6 @@ back_keyboard = InlineKeyboardMarkup(
 )
 
 def get_paginator_keyboard(page , max_pages, type ):
-    # keyboard = [[InlineKeyboardButton(f'{page}/{max_pages}', callback_data= '_nothing' )]]
-    # if page == max_pages and page == 1:
-    #     pass
-    # elif page == 1:
-    #     keyboard[0].append(InlineKeyboardButton('Вперед' , callback_data= f'next_page_{type}'))
-    # elif page == max_pages:
-    #     keyboard[0] = [InlineKeyboardButton('Назад', callback_data= f'back_page_{type}')] + keyboard[0]
     keyboard = [
         [
             InlineKeyboardButton( '◀️Назад' , callback_data= f'back_page_{type}'),
@@ -379,10 +370,6 @@ def start_keyboard_handler(update: Update, context : CallbackContext ):
 
 
 def main():
-    # req = Request(
-    #     connect_timeout=0.5,
-    #     read_timeout=1.0,
-    # )
     bot = Bot(
         token = "1226045587:AAHQgOJ6e9mvH3jQPFwHaJBLVyOsGs2iPCU",
     )
